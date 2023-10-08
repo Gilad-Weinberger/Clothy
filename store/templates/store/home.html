@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-9a55d8748fd46de7b7977d9ee8dee7a4.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/cindie-mono" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/store/home.css' %}" />
+    <title>Clothy | Home</title>
+  </head>
+  <body>
+    {% include 'store/components/navbar_search.html' %}
+    <div class="main">
+      <div class="top">
+        <div class="left">
+          <div class="image">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="circle-3"></div>
+          </div>
+          <p class="text">
+            Fashion is a form of self-expression and autonomy at a particular
+            period.
+          </p>
+          <a href="#" class="read-more"
+            >READ MORE<i class="fa-regular fa-arrow-up-right"></i
+          ></a>
+        </div>
+        <h1 class="center">
+          <i class="fa-solid fa-arrow-right-long"></i>
+          CLOTHES ARE THE<span></span>SPIRIT OF FASHION
+        </h1>
+        <div class="right">
+          <div class="circle">.</div>
+          <a
+            href="{% if random_product.id %}{% url 'product_detail' random_product.id %}{% endif %}"
+          >
+            <img
+              src="{{ random_product.image.url }}"
+              alt="{{ random_product.name }}"
+            />
+          </a>
+          <p class="name">{{ random_product.name }}</p>
+          <p class="price">€{{random_product.price}}</p>
+        </div>
+      </div>
+      <div class="popular-products">
+        <div class="bar">
+          <h2 class="title">POPULAR PRODUCTS</h2>
+        </div>
+        <div class="pop-products">
+          {% for product in top_rated_products %}
+          <div class="item">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            </a>
+            <div class="bottom">
+              <div class="info">
+                <p class="name">{{ product.name }}</p>
+                <p class="price">€{{ product.final_price }}</p>
+              </div>
+              <a href="{% url 'add_to_cart' product.id %}">
+                <i class="cart-icon fa-solid fa-basket-shopping-simple"></i>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="new-arrivals-products">
+        <div class="bar">
+          <h2 class="title">NEW ARRIVALS</h2>
+        </div>
+        <div class="new-products">
+          {% for product in top_created_products %}
+          <div class="item">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            </a>
+            <div class="bottom">
+              <div class="info">
+                <p class="name">{{ product.name }}</p>
+                <p class="price">€{{ product.final_price }}</p>
+              </div>
+              <a href="{% url 'add_to_cart' product.id %}">
+                <i class="cart-icon fa-solid fa-basket-shopping-simple"></i>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="follow">
+        <h1 class="title">FOLLOW US ON</h1>
+        <div class="social">
+          <div class="instagram brand">
+            <i class="fa-brands fa-instagram"></i>
+            <p class="name-tag">@clothy.fashion</p>
+          </div>
+        </div>
+        <div class="images">
+          {% for followImage in follow_images %}
+          <img src="{{ followImage.image.url }}" alt="" />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% include 'store/components/footer.html' %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartIcons = document.querySelectorAll(".cart-icon");
+
+        cartIcons.forEach(function (cartIcon) {
+          cartIcon.addEventListener("click", function () {
+            cartIcon.classList.add("cart-clicked");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

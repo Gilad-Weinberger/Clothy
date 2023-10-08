@@ -1,0 +1,17 @@
+<div class="navbar">
+    <a href="{% url 'index' %}" class="title">clothy.</a>
+    <div class="menu">
+        <a href="{% url 'products' %}">All Products</a>
+        <a href="{% url 'products' category_id=1 %}">Men</a>
+        <a href="{% url 'products' category_id=2 %}">Women</a>
+        <a href="{% url 'products' category_id=3 %}">Accessories</a>
+        <a href="{% url 'products' category_id=4 %}">Jackets</a>
+        <a href="{% url 'products' category_id=5 %}">Sale</a>
+    </div>
+    <div class="right">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <a href="#"><i class="fa-regular fa-heart"></i></a>
+        <a href="{% url 'cart' %}"><i class="fa-regular fa-cart-shopping"></i></a>
+        <p class="cart-count">0</p>
+    </div>
+</div>
