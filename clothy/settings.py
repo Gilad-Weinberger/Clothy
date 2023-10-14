@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-z=mxp6o!14k$s1)z0qk^g%oni24y&bdg=1d#3a%i4+!6=p+u(4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'clothy.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-	"default": dj_database_url.parse("postgres://clothy_db_user:vsVFqBuJaEXUgILrZpOq3ICsAeB0mc2n@dpg-cklch4jj89us73dt8hpg-a.oregon-postgres.render.com/clothy_db")
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
