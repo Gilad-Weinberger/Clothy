@@ -1,0 +1,179 @@
+$navbar-border-color: #f4f5f5;
+
+a {
+  color: black;
+  text-decoration: none;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 120px 20px 120px;
+  border-bottom: 5px solid $navbar-border-color;
+  .title {
+    font-size: 50px;
+    font-weight: bolder;
+    transform: scale(1, 0.85);
+    letter-spacing: 0.00001px;
+  }
+  .search {
+    display: flex;
+    margin-bottom: -8px;
+    input {
+      width: 600px;
+      padding: 10px;
+      border-radius: 20px;
+    }
+    button {
+      background-color: #d4d4d4;
+      padding: 10px 15px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      margin-left: -38px;
+      border: 2px solid black;
+    }
+  }
+  .right {
+    width: 10%;
+    padding: 0px 5px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-bottom: -10px;
+    img {
+      border-radius: 50%;
+      width: 30px;
+      border: 2px solid black;
+    }
+    i {
+      font-size: 22px;
+    }
+    .search-icon {
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 3px 6px 2px 6px;
+      background-color: rgb(233, 233, 170);
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+.main {
+  padding: 0px 140px;
+  margin: 50px 0px 150px 80px;
+  position: relative;
+  .title {
+    font-family: "Cindie Mono", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  table {
+    width: 100%;
+    border: 1px solid black;
+    font-size: 20px;
+    thead {
+      tr {
+        width: 100%;
+        border: 1px solid black;
+      }
+    }
+    tbody {
+      tr {
+        width: 100%;
+        border: 1px solid black;
+        text-align: center;
+        .first-td {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          a {
+            img {
+              height: 80px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .final {
+    position: absolute;
+    right: 140px;
+    margin-top: 20px;
+    text-align: end;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    padding: 10px;
+    .total {
+      font-size: 18px;
+    }
+    .checkout {
+      font-size: 20px;
+      color: red;
+    }
+  }
+}
+.footer {
+  padding: 80px 124px;
+  background-color: #f8f9f8;
+  width: calc(100% - 240px);
+  margin-top: 20px;
+  .top {
+    display: flex;
+    height: 220px;
+    .titles {
+      .title {
+        font-size: 60px;
+        font-weight: bolder;
+        transform: scale(1, 0.85);
+        letter-spacing: 0.00001px;
+        margin-bottom: 50px;
+        margin-top: -15px;
+      }
+      .description {
+        max-width: 290px;
+      }
+    }
+    .links {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      margin-left: 200px;
+      .t1,
+      .t2,
+      .t3,
+      .t4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 35px;
+        }
+        .item {
+          font-size: 17px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  hr {
+    margin: 40px 0px 20px 0px;
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+html {
+  height: 100%;
+}
