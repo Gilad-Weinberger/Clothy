@@ -34,7 +34,11 @@
       href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/store/home.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/store/home.css' %}"
+    />
     <title>Clothy | Home</title>
   </head>
   <body>
@@ -128,9 +132,13 @@
           </div>
         </div>
         <div class="images">
-          {% for followImage in follow_images %}
-          <img src="{{ followImage.image.url }}" alt="" />
-          {% endfor %}
+          {% for followImage in follow_images %} {% if user.profile_image %}
+          <img
+            src="{{ user.profile_image.url }}"
+            alt="Profile Image"
+            class="profile-image"
+          />
+          {% endif %} {% endfor %}
         </div>
       </div>
     </div>
