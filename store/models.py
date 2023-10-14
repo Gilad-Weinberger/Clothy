@@ -64,7 +64,7 @@ class Product(models.Model):
     discount_value = models.DecimalField(max_digits=10, decimal_places=0, null=True, blank=True)
     multiple_colors = models.BooleanField(default=False)
     colors = models.ManyToManyField(Color, related_name='colors')
-    image = models.ImageField(upload_to=product_image_upload_path)
+    image = models.ImageField()
     categories = models.ManyToManyField(Category, related_name='categories')
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -117,7 +117,7 @@ class Comment(models.Model):
 
 class FollowImage(models.Model):
     follow_image_id = models.CharField(max_length=1, unique=True, blank=True)
-    image = models.ImageField(upload_to=follow_image_upload_path)
+    image = models.ImageField()
 
     def __str__(self):
         return self.follow_image_id
