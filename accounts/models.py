@@ -31,7 +31,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     date_joined = models.DateTimeField(default=timezone.now)
-    profile_image = models.ImageField()
+    profile_image = models.ImageField(upload_to="media/profile-images")
 
     is_staff = models.BooleanField(
         _('staff status'),
