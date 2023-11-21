@@ -12,7 +12,7 @@
     {% if user.is_authenticated %}
     <a class="image-a" href="{% url 'user_details' %}">
       <img
-        src="/{{ BASIC_DIR }}/{{user.profile_image.url}}"
+        src="{{ user.profile_image.url }}"
         alt="Profile Image"
         class="profile-image"
       />
