@@ -42,7 +42,7 @@
     <title>Clothy | {{ product.name }}</title>
   </head>
   <body>
-    {% include 'store/components/navbar_search.html' %}
+    {% include 'components/navbar_search.html' %}
     <div class="main">
       <div class="product-details">
         <img src="{{ product.image.url }}" alt="" class="big-image" />
@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-    {% include 'store/components/footer.html' %}
+    {% include 'components/footer.html' %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
