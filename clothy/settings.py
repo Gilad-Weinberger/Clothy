@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import dj_database_url
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z=mxp6o!14k$s1)z0qk^g%oni24y&bdg=1d#3a%i4+!6=p+u(4'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-DATABASES["default"] = dj_database_url.parse("postgres://clothy_user:t8SgjMsjwQQh3r82wmBdnOMovkZEuhLn@dpg-cleamlfgsrdc739r0180-a.oregon-postgres.render.com/clothy")
+database_url = os.environ.get('DATABASE_URL')
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 STORAGES = {
