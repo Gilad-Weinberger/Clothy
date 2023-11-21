@@ -6,6 +6,15 @@ from django.conf import settings
 import os
 from accounts.models import CustomUser
 
+def product_image_upload_path(instance, filename):
+    filename, ext = os.path.splitext(filename)
+    new_filename = f"product_{instance.email}{ext}"
+    return os.path.join('product_images', new_filename)
+
+def follow_image_upload_path(instance, filename):
+    filename, ext = os.path.splitext(filename)
+    new_filename = f"follow_{instance.email}{ext}"
+    return os.path.join('follow_images', new_filename)
 
 class Color(models.Model):
     color_id = models.CharField(max_length=4, blank=True)
