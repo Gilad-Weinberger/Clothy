@@ -4,11 +4,6 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 import os
 
-def profile_image_upload_path(instance, filename):
-    filename, ext = os.path.splitext(filename)
-    new_filename = f"profile_{instance.email}{ext}"
-    return os.path.join('profile_images', new_filename)
-
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -36,7 +31,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     date_joined = models.DateTimeField(default=timezone.now)
-    profile_image = models.ImageField(upload_to=profile_image_upload_path)
+    profile_image = models.ImageField()
 
     is_staff = models.BooleanField(
         _('staff status'),
