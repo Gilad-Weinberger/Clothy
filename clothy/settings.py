@@ -82,11 +82,9 @@ WSGI_APPLICATION = 'clothy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/var/task/db.sqlite3',  # Verify this path
     }
 }
-
-DATABASES['default'] = dj_database_url.parse("postgres://clothy_user:t8SgjMsjwQQh3r82wmBdnOMovkZEuhLn@dpg-cleamlfgsrdc739r0180-a.oregon-postgres.render.com/clothy")
 
 STORAGES = {
     'default': {
