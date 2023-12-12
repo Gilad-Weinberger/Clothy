@@ -116,7 +116,7 @@ class Comment(models.Model):
 
 class FollowImage(models.Model):
     follow_image_id = models.CharField(max_length=1, unique=True, blank=True)
-    image = models.BinaryField()
+    image = models.ImageField(upload_to="follow_images")
 
     def __str__(self):
         return self.follow_image_id
@@ -129,12 +129,7 @@ class FollowImage(models.Model):
             else:
                 new_id = '1'
             self.follow_image_id = new_id
-
-        if self.image:
-            self.image_data = self.image.read()
-
         super().save(*args, **kwargs)
-
 
 
 class Cart(models.Model):
