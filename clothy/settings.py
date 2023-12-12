@@ -102,6 +102,9 @@ STORAGES = {
     'default': {
         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
 }
 
 
