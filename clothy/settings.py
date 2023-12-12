@@ -85,6 +85,15 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'verceldb', 
+        'USER': 'default',
+        'PASSWORD': 'd8sFHzR4ZiOx',
+        'HOST': 'ep-solitary-queen-70047627.us-east-1.postgres.vercel-storage.com', 
+        'PORT': '5432',
+    }
+
 STORAGES = {
     'default': {
         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
