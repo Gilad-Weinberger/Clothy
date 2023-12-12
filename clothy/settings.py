@@ -87,14 +87,19 @@ DATABASES = {
 
 DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb', 
+        'NAME': 'verceldb',
         'USER': 'default',
         'PASSWORD': 'd8sFHzR4ZiOx',
-        'HOST': 'ep-solitary-queen-70047627.us-east-1.postgres.vercel-storage.com', 
+        'HOST': 'ep-solitary-queen-70047627.us-east-1.postgres.vercel-storage.com',
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
-        }
+        },
+        'CONN_MAX_AGE': 600,
+        'ATOMIC_REQUESTS': True,
+        'TEST': {
+            'NAME': 'test_db',
+        },
     }
 
 STORAGES = {
