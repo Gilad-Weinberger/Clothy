@@ -86,7 +86,7 @@ DATABASES = {
 }
 
 DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb', 
         'USER': 'default',
         'PASSWORD': 'd8sFHzR4ZiOx',
