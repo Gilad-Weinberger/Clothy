@@ -92,6 +92,9 @@ DATABASES['default'] = {
         'PASSWORD': 'd8sFHzR4ZiOx',
         'HOST': 'ep-solitary-queen-70047627.us-east-1.postgres.vercel-storage.com', 
         'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 
 STORAGES = {
