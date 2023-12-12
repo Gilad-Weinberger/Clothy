@@ -94,11 +94,7 @@ DATABASES['default'] = {
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
-        },
-        'CONN_MAX_AGE': 600,
-        'ATOMIC_REQUESTS': True,
-        'TEST': {
-            'NAME': 'test_db',
+            'options': 'endpoint=ep-solitary-queen-70047627',
         },
     }
 
