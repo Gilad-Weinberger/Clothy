@@ -116,7 +116,8 @@ class Comment(models.Model):
 
 class FollowImage(models.Model):
     follow_image_id = models.CharField(max_length=1, unique=True, blank=True)
-    image_data = models.BinaryField()
+    image_file = models.ImageField(null=True, blank=True)  
+    image = models.BinaryField(blank=True, null=True)  
 
     def __str__(self):
         return self.follow_image_id
@@ -129,13 +130,18 @@ class FollowImage(models.Model):
             else:
                 new_id = '1'
             self.follow_image_id = new_id
-
-        # Convert the image file to bytes and save it in the database
-        if self.image:
-            self.image_data = self.image.read()
+        
+        if self.image_file:
+            self.image = self.image_file.read()
 
         super().save(*args, **kwargs)
 
+    def delete(self, *args, **kwargs):
+        if self.image_file:
+            storage, path = self.image_file.storage, self.image_file.path
+            storage.delete(path)
+
+        super().delete(*args, **kwargs)
 
 
 class Cart(models.Model):
