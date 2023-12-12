@@ -114,6 +114,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment by {self.user.username} on {self.product.name}"
 
+
 class FollowImage(models.Model):
     follow_image_id = models.CharField(max_length=1, unique=True, blank=True)
     image_file = models.ImageField(null=True, blank=True)  
@@ -130,18 +131,17 @@ class FollowImage(models.Model):
             else:
                 new_id = '1'
             self.follow_image_id = new_id
-        
+
         if self.image_file:
+            if self.pk:  
+                old_image = FollowImage.objects.get(pk=self.pk)
+                if old_image.image_file:
+                    storage, path = old_image.image_file.storage, old_image.image_file.path
+                    storage.delete(path)
+
             self.image = self.image_file.read()
 
         super().save(*args, **kwargs)
-
-    def delete(self, *args, **kwargs):
-        if self.image_file:
-            storage, path = self.image_file.storage, self.image_file.path
-            storage.delete(path)
-
-        super().delete(*args, **kwargs)
 
 
 class Cart(models.Model):
